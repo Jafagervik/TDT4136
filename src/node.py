@@ -3,7 +3,7 @@
 
 class Node():
 
-    def __init__(self, parent=None, position=None):
+    def __init__(self, position=None, parent=None):
         self.f = 0
         self.g = 0
         self.h = 0
@@ -12,3 +12,6 @@ class Node():
 
     def __eq__(self, other):
         return self.state == other.state
+
+    def __lt__(self, other):
+        return self.f < other.f
