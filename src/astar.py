@@ -58,11 +58,11 @@ def astar(start, end, maze, heurestic='h', temp=None):
             if neighbor in closed:
                 continue
 
-            neighbor.g = manhattan_distance(neighbor.pos, end_node.pos)
+            neighbor.g = manhattan_distance(neighbor.pos, end_node.pos) # This will change to cost instead
             neighbor.h = manhattan_distance(neighbor.pos, end_node.pos)
             neighbor.f = neighbor.g + neighbor.h
 
-            opened.append(neighbor) if add_to_open(opened, neighbor):
+            opened.append(neighbor) if add_to_open(opened, neighbor)
 
 def add_to_open(opened, neighbor):
     for node in opened:
