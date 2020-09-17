@@ -8,7 +8,6 @@ class Node():
         self.g = g
         self.h = h
         self.f = self.g + self.h
-        self.open = True # status update
         self.parent = None
         self.kids = None
 
