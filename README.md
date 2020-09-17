@@ -1,2 +1,4 @@
 # TDT4165
-Gutta krutt 
+Sick kuntz
+
+We're all gonna make it brahzzzz
