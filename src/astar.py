@@ -20,7 +20,7 @@ def backtrack(current_node):
         path.append(current_node.pos)
     return path[::-1]
 
-def astar(start, end, temp=None):
+def astar(start, end, maze, heurestic='h', temp=None):
     """
     Combines dfs and bfs into a more optimized way of searching
     :param start, Node, start position
@@ -54,7 +54,6 @@ def astar(start, end, temp=None):
             if (get_cell_value) == "#":
                 continue
 
-            # Check boundaries
             neighbor = Node(nxt, curr_node)
             if neighbor in closed:
                 continue
