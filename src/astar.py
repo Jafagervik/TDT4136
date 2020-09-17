@@ -1,10 +1,6 @@
 """ Implementation of the astar algorithm """
-from math import abs, inf
-from node import Node
-from Map import (
-    get_cell_value,
-    get_end_goal_pos
-)
+from math import inf, sqrt
+from src.node import Node
 
 def manhattan_distance(start, end):
     return abs(start[0] - end[0]) + abs(start[1] - end[1])
@@ -20,7 +16,7 @@ def backtrack(current_node):
         path.append(current_node.pos)
     return path[::-1]
 
-def astar(start, end, maze, heurestic='h', temp=None):
+def astar(start, end, map_obj):
     """
     Combines dfs and bfs into a more optimized way of searching
     :param start, Node, start position
@@ -39,30 +35,29 @@ def astar(start, end, maze, heurestic='h', temp=None):
         curr_node = opened.pop(0)
         closed.append(curr_node)
 
-        closed_nodes.append(curr_node)
-
         if curr_node.pos == end_node.pos:
-            return backtrack(curr)
-        (x,y) = curr_node.pos
-        neighbors = [(x-1,y),(x,y-1),(x,y+1),(x+1,y)]
+            return backtrack(curr_node)
 
+        (x,y) = curr_node.pos
+        neighbors = [[x-1,y],[x,y-1],[x,y+1], [x+1,y]]
 
         for nxt in neighbors:
-            map_val = get_cell_value(nxt)
+            map_val = map_obj.get_cell_value(nxt)
 
             # Do we hit a wall
-            if (get_cell_value) == "#":
+            if map_val == -1:
                 continue
 
             neighbor = Node(nxt, curr_node)
             if neighbor in closed:
                 continue
 
-            neighbor.g = manhattan_distance(neighbor.pos, end_node.pos) # This will change to cost instead
+            neighbor.g = curr_node.g + map_val
             neighbor.h = manhattan_distance(neighbor.pos, end_node.pos)
             neighbor.f = neighbor.g + neighbor.h
 
-            opened.append(neighbor) if add_to_open(opened, neighbor)
+            if add_to_open(opened, neighbor):
+                opened.append(neighbor)
 
 def add_to_open(opened, neighbor):
     for node in opened:

@@ -11,7 +11,7 @@ class Node():
         self.pos = position
 
     def __eq__(self, other):
-        return self.state == other.state
+        return self.pos == other.pos
 
     def __lt__(self, other):
         return self.f < other.f
