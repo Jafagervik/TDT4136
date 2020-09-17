@@ -8,6 +8,9 @@ def manhattan_distance(start, end):
 def eucledian_distance(start, end):
     pass
 
+def shortest(x, y):
+    pass
+
 
 def best_fist_search(start):
     """
@@ -15,23 +18,29 @@ def best_fist_search(start):
     :param start, Node, start position
     """
 
-    closed_nodes = []
-    
+
 
     start.g = 0
     start.h = manhattan_distance(start, None) # Erstatt None med end node omsider
-    
+
     start.f = start.g + start.h
     open_nodes = [start]
+    closed_nodes = []
 
     while open_nodes:
-        x = open.pop()
+        x = open_nodes.pop()
         closed_nodes.append(x)
         if x == end:
-            return True
-        
-    
-    
+            return
+
+        for neighbour in start.children:
+            if neighbour not in dirs or neighbourn in closed:
+                break
+
+            if None:
+                neighbour.f = manhattan_distance((0,0), (4,5))
+                neighbour.parent
+
 
 def astar():
     return
