@@ -12,4 +12,5 @@ class Node():
         self.parent = None
         self.kids = None
 
-
+    def __eq__(other):
+        return self.state == other.state
