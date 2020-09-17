@@ -22,7 +22,6 @@ class Map_Obj():
         :param path: Path to .csv maps
         :return: the integer map and string map
         """
-        path = '../maps/' + path
         # Read map from provided csv file
         df = pd.read_csv(path, index_col=None, header=None)#,error_bad_lines=False)
         # Convert pandas dataframe to numpy array
