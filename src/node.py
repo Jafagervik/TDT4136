@@ -1,5 +1,4 @@
-""" Here we create the file for the different type of nodes we'll be using """
-
+""" This file specifies how nodes are created """
 
 class Node():
 
@@ -12,6 +11,7 @@ class Node():
 
     def __eq__(self, other):
         return self.pos == other.pos
-
+    
+    # makes it easier to sort open nodes instead of using lambdas
     def __lt__(self, other):
         return self.f < other.f
