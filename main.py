@@ -6,7 +6,7 @@ from src.astar import astar
 
 
 def main():
-    print("WEELCOME TO ASTAR ASSHOLE")
+    print("Welcome to this A* path finding algorith for Samfundet!")
     while True:
         task = int(input("What task do you want to do? "))
         map_obj = Map_Obj(task)
