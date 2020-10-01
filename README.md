@@ -1,4 +1,7 @@
-# TDT4136
-Sick kuntz
+# TDT4136 - Introduction to AI
 
-We're all gonna make it brahzzzz
+Exercises for course TDT4136 at NTNU
+
+## Contributors
+* Tommy Woldseth
+* Jørgen Aleksander Fagervik
